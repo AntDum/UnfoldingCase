@@ -1,13 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq5jwbgk8eera"]
+[gd_scene load_steps=16 format=3 uid="uid://dq5jwbgk8eera"]
 
 [ext_resource type="Script" uid="uid://dbllu6jb4prnj" path="res://scripts/game_manager.gd" id="1_yqjtg"]
 [ext_resource type="Script" path="res://scripts/character_generator.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bgkyxppw3ugu2" path="res://icon.svg" id="3_lnu2h"]
 [ext_resource type="Script" path="res://scripts/item_generator.gd" id="4_0tnpc"]
 [ext_resource type="Script" uid="uid://bjoem673nqpg4" path="res://scripts/components/ui/animated_control.gd" id="4_iywne"]
+[ext_resource type="Script" path="res://scripts/items.gd" id="5_ir15t"]
 [ext_resource type="PackedScene" uid="uid://co2ieyoe3ytjs" path="res://scenes/character.tscn" id="5_p57ef"]
+[ext_resource type="Resource" uid="uid://bkwji4yy74i2o" path="res://resources/items/axe.tres" id="6_ca42v"]
 [ext_resource type="PackedScene" uid="uid://ds7bkycuo6axp" path="res://scenes/ui/pagination.tscn" id="6_p57ef"]
+[ext_resource type="Resource" uid="uid://x37n87pl5fj5" path="res://resources/items/hat.tres" id="7_rysoc"]
 [ext_resource type="Script" uid="uid://8krug0mq1f1f" path="res://scripts/components/ui/hover_button.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://bdmrkao7m1ond" path="res://scripts/ui/panel.gd" id="8_gee14"]
+[ext_resource type="Resource" uid="uid://cjreeljrwyfqg" path="res://resources/items/helmet.tres" id="8_ssvqc"]
+[ext_resource type="Resource" uid="uid://d07ul2u2fwxn7" path="res://resources/items/riffle.tres" id="9_264po"]
+[ext_resource type="Resource" uid="uid://cgr2jaaj12ahn" path="res://resources/items/sword.tres" id="10_1kice"]
 [ext_resource type="Script" path="res://scripts/ui/panel.gd" id="8_gee14"]
 
 [node name="Game" type="Control"]
@@ -28,11 +35,14 @@ character_controls = [NodePath("../../Cases/Culprit1/Character"), NodePath("../.
 
 [node name="CharacterGenerator" type="Node" parent="Managers"]
 script = ExtResource("2_lnu2h")
-names = Array[String](["Micheal", "Bernard"])
+names = Array[String](["Amanda Williams", "Jorge Stricker", "Corey Rahman", "Ella Whitehead", "Aimee Patterson", "Grace Kennedy", "Joe Iqbal", "Chelsea Todd", "Jacob Chandler", "James Summers", "Sienna Morgan", "Luke Lynch", "Spencer Metcalfe", "Riley Henderson", "Royale Aubin", "Leila Esposito", "Bibiana Marino", "Sara Lori", "Alba Milanesi", "Frida Lettiere", "Madeline Nangle", "Sienna Learmonth", "Isabelle McGrowdie", "Nob Diggle", "Salvia Bunce", "Sago Took", "Valentin Bukovac", "Bogomira Marija", "Asmira Knedl", "Malachy Hill", "Marley Dickson", "Theo Robertson", "Lochlan Simpson", "Cayden Wallace", "Eliza Cunningham", "Kaja Rietveld", "Nicholas Kent", "Oscar Pearson", "Kai Little", "Megan Wade", "Holly Robinson"])
 textures = Array[Texture2D]([ExtResource("3_lnu2h")])
 
 [node name="ItemGenerator" type="Node" parent="Managers"]
 script = ExtResource("4_0tnpc")
+
+items = Array[ExtResource("5_ir15t")]([ExtResource("6_ca42v"), ExtResource("7_rysoc"), ExtResource("8_ssvqc"), ExtResource("9_264po"), ExtResource("10_1kice")])
+metadata/_custom_type_script = "uid://fual0iqnamfy"
 
 [node name="Cases" type="TabContainer" parent="."]
 layout_mode = 1
