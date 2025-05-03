@@ -12,4 +12,3 @@ script = ExtResource("1_ih03p")
 name = "Axe"
 sprite = SubResource("AtlasTexture_5eq2r")
 lead = Array[String](["lumberjack", "dwarf"])
-metadata/_custom_type_script = "uid://o6j0lkeevuru"
