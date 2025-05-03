@@ -5,7 +5,7 @@ class_name GameManager
 @export var item_generator : ItemGenerator
 
 @export var character_controls : Array[CharacterControl]
-@export var luggage_controls : Array[Node]
+@export var luggage_controls : Array[Luggage]
 
 var characters : Array[Character]
 
@@ -30,7 +30,9 @@ func _update_content() -> void:
 		contents.append(item_generator.generate_final_content(0, item_in_luggage))
 	contents.shuffle()
 	for i in range(len(luggage_controls)):
-		pass
+		var lg = LuggageGenerator.new()
+		var luggage_content = lg.generate(contents[i])
+		luggage_controls[i].get_pocket_tree(luggage_content)
 
 func _update_character() -> void:
 	var n_char = len(character_controls)

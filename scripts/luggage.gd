@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Luggage
+
 var luggage_node = preload("res://scenes/luggage/luggage.tscn")
 
 var is_folded = true

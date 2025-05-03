@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dq5jwbgk8eera"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://dbllu6jb4prnj" path="res://scripts/game_manager.gd" id="1_yqjtg"]
 [ext_resource type="Script" path="res://scripts/character_generator.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bgkyxppw3ugu2" path="res://icon.svg" id="3_lnu2h"]
-[ext_resource type="Script" uid="uid://fual0iqnamfy" path="res://scripts/item_generator.gd" id="4_0tnpc"]
+[ext_resource type="Script" path="res://scripts/item_generator.gd" id="4_0tnpc"]
 [ext_resource type="Script" uid="uid://bjoem673nqpg4" path="res://scripts/components/ui/animated_control.gd" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://co2ieyoe3ytjs" path="res://scenes/character.tscn" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://ds7bkycuo6axp" path="res://scenes/ui/pagination.tscn" id="6_p57ef"]
@@ -33,7 +33,6 @@ textures = Array[Texture2D]([ExtResource("3_lnu2h")])
 
 [node name="ItemGenerator" type="Node" parent="Managers"]
 script = ExtResource("4_0tnpc")
-metadata/_custom_type_script = "uid://fual0iqnamfy"
 
 [node name="Cases" type="TabContainer" parent="."]
 layout_mode = 1
