@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://co2ieyoe3ytjs"]
+
+[ext_resource type="Script" uid="uid://8krug0mq1f1f" path="res://scripts/components/ui/hover_button.gd" id="1_agfs1"]
+[ext_resource type="Script" uid="uid://b1p8c8dyfu857" path="res://scripts/nodes/character.gd" id="1_lrhn5"]
+[ext_resource type="Texture2D" uid="uid://bgkyxppw3ugu2" path="res://icon.svg" id="1_rkhd4"]
+
+[node name="Character" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lrhn5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture = ExtResource("1_rkhd4")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "NoName"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NotOkButton" type="Button" parent="MarginContainer/HBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+text = "Accuse"
+script = ExtResource("1_agfs1")
+scaling = 1.1
+metadata/_custom_type_script = "uid://8krug0mq1f1f"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer2/HBoxContainer/NotOkButton" to="." method="_on_not_ok_button_pressed"]

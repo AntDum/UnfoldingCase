@@ -1,4 +1,6 @@
 extends Control
 
-func _on_open_demo_button_pressed() -> void:
-	$AnimatedControl.animate_show()
+const GAME = "res://scenes/game.tscn"
+
+func _on_play_button_pressed() -> void:
+	SceneManager.swap_scene(GAME)

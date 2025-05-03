@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds7bkycuo6axp"]
+
+[ext_resource type="Script" uid="uid://1hngna4of7o2" path="res://scripts/nodes/pagination.gd" id="1_68xpo"]
+[ext_resource type="Script" uid="uid://8krug0mq1f1f" path="res://scripts/components/ui/hover_button.gd" id="2_o376a"]
+
+[node name="Pagination" type="MarginContainer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+script = ExtResource("1_68xpo")
+
+[node name="Control" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="PrevButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "<"
+script = ExtResource("2_o376a")
+metadata/_custom_type_script = "uid://8krug0mq1f1f"
+
+[node name="Control" type="Control" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = ">"
+script = ExtResource("2_o376a")
+metadata/_custom_type_script = "uid://8krug0mq1f1f"
+
+[connection signal="pressed" from="Control/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Control/NextButton" to="." method="_on_next_button_pressed"]
