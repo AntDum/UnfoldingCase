@@ -37,15 +37,17 @@ func get_pocket_tree(pt : Pocket, horizontal_split = 1):
 		var new_pocket_node = luggage_node.instantiate()
 		new_pocket_node.get_pocket_tree(pt.left_pocket, 1 - horizontal_split)
 		add_child(new_pocket_node)
-		new_pocket_node.position.x = -150 * horizontal_split
-		new_pocket_node.position.y = -150 * (1 - horizontal_split)
+		new_pocket_node.position.x = -120 * horizontal_split
+		new_pocket_node.position.y = -120 * (1 - horizontal_split)
+		new_pocket_node.scale = Vector2(0.8,  0.8)
 		sub_pockets.append(new_pocket_node)
 	if pt.right_pocket:
 		var new_pocket_node = luggage_node.instantiate()
 		new_pocket_node.get_pocket_tree(pt.right_pocket, 1 - horizontal_split)
 		add_child(new_pocket_node)
-		new_pocket_node.position.x = 150 * horizontal_split
-		new_pocket_node.position.y = 150 * (1 - horizontal_split)
+		new_pocket_node.position.x = 120 * horizontal_split
+		new_pocket_node.position.y = 120 * (1 - horizontal_split)
+		new_pocket_node.scale = Vector2(0.8, 0.8)
 		sub_pockets.append(new_pocket_node)
 	if pt.contained_item:
 		contained_item = pt.contained_item

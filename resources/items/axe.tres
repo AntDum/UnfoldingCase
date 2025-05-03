@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemRessource" load_steps=4 format=3 uid="uid://bkwji4yy74i2o"]
 
-[ext_resource type="Script" uid="uid://o6j0lkeevuru" path="res://scripts/items.gd" id="1_ih03p"]
+[ext_resource type="Script" path="res://scripts/items.gd" id="1_ih03p"]
 [ext_resource type="Texture2D" uid="uid://cejjc064xakie" path="res://assets/IconSet.png" id="2_lo7on"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5eq2r"]
@@ -12,4 +12,3 @@ script = ExtResource("1_ih03p")
 name = "Axe"
 sprite = SubResource("AtlasTexture_5eq2r")
 lead = Array[String](["lumberjack", "dwarf"])
-metadata/_custom_type_script = "uid://o6j0lkeevuru"
