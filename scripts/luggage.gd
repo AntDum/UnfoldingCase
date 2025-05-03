@@ -4,6 +4,7 @@ var luggage_node = preload("res://scenes/luggage/luggage.tscn")
 
 var is_folded = true
 var sub_pockets : Array = []
+var contained_item = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for sp in sub_pockets:
@@ -19,6 +20,8 @@ func hide_and_fold():
 		sp.hide_and_fold()
 
 func unfold():
+	if contained_item:
+		print("Showing " + str(contained_item))
 	$Sprite2D.visible = true
 	for sp in sub_pockets:
 		sp.show()
@@ -45,7 +48,7 @@ func get_pocket_tree(pt : Pocket, horizontal_split = 1):
 		new_pocket_node.position.y = 150 * (1 - horizontal_split)
 		sub_pockets.append(new_pocket_node)
 	if pt.contained_item:
-		print("Showing item contained " + str(pt.contained_item))
+		contained_item = pt.contained_item
 		
 		
 
