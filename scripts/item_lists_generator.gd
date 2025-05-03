@@ -2,7 +2,6 @@ extends Node
 
 @export var all_items: Array[ItemRessource] = []
 
-
 func generate_disc_items_list(disc_items_count: int) -> Array[ItemRessource]:
 	var disc_items: Array[ItemRessource] = []
 	for i in range(disc_items_count):

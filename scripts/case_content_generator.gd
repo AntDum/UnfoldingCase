@@ -16,9 +16,3 @@ func generate_final_content(discr_items_count: int, discr_items: Array[ItemResso
 		final_content.append(herring_items[randi_range(0, herring_items.size()-1)])
 	final_content.shuffle()
 	return final_content
-
-# Test function
-#func _on_button_up() -> void:
-#	for i in generate_final_content(1, discr_items, herring_items):
-#		print (i.name)
-#	print("------")
