@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdd0740mt5jqa"]
+
+[ext_resource type="Script" uid="uid://dtmgftwypifeq" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Script" uid="uid://8krug0mq1f1f" path="res://scripts/components/ui/hover_button.gd" id="2_fe2o3"]
+[ext_resource type="PackedScene" uid="uid://lws0kghhp3gj" path="res://scenes/ui/demo.tscn" id="3_1g8jr"]
+[ext_resource type="Script" uid="uid://ku87vgo5rwad" path="res://scripts/components/follow_mouse.gd" id="4_m1kxf"]
+
+[sub_resource type="Curve" id="Curve_m1kxf"]
+_data = [Vector2(0, 0.074614), 0.0, 0.0, 0, 0, Vector2(0.112903, 1), 0.175556, 0.175556, 0, 0, Vector2(1, 0.197256), -1.44834, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x2yvf"]
+curve = SubResource("Curve_m1kxf")
+
+[sub_resource type="Curve" id="Curve_uhagc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.979839, 0.353345), -1.65901, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_btxxm"]
+curve = SubResource("Curve_uhagc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2yvf"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+angle_min = -20.0
+angle_max = 20.0
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.399
+damping_max = 3.846
+scale_min = 2.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_btxxm")
+alpha_curve = SubResource("CurveTexture_x2yvf")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl1te")
+
+[node name="OpenDemoButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -15.5
+offset_right = 49.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Open demo"
+script = ExtResource("2_fe2o3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.456
+anchor_top = 0.368
+anchor_right = 0.549
+anchor_bottom = 0.452
+offset_left = -62.312
+offset_top = -5.46402
+offset_right = 62.552
+offset_bottom = -10.896
+grow_horizontal = 2
+grow_vertical = 2
+text = "Demo is in a AnimatedControl
+Button is a HoverButton"
+horizontal_alignment = 1
+
+[node name="AnimatedControl" parent="." instance=ExtResource("3_1g8jr")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(330, 188)
+amount = 16
+lifetime = 0.78
+visibility_rect = Rect2(-50, -50, 100, 100)
+process_material = SubResource("ParticleProcessMaterial_x2yvf")
+
+[node name="FollowMouse" type="Node2D" parent="GPUParticles2D" node_paths=PackedStringArray("target")]
+script = ExtResource("4_m1kxf")
+target = NodePath("..")
+weight = 0.11
+metadata/_custom_type_script = "uid://ku87vgo5rwad"
+
+[connection signal="pressed" from="OpenDemoButton" to="." method="_on_open_demo_button_pressed"]
