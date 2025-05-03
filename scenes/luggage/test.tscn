@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu0nwks273p8c"]
+
+[ext_resource type="Script" uid="uid://dkmdr3l38icd5" path="res://scenes/luggage/test.gd" id="1_7i4pc"]
+[ext_resource type="PackedScene" uid="uid://1up5hxewsl00" path="res://scenes/luggage/luggage.tscn" id="2_hor2e"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_7i4pc")
+
+[node name="Luggage" parent="." instance=ExtResource("2_hor2e")]
+position = Vector2(577, 339)
